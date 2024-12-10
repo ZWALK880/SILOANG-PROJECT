@@ -30,7 +30,8 @@ public class FiturProduk extends javax.swing.JPanel {
         txt_nama.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nama Produk");
         cb_satuan.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "--- Pilih Satuan ---");
         txt_stok.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Stok Produk");
-        txt_harga.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Harga Produk");
+        txt_hargaBeli.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "0");
+        txt_hargaJual.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "0 ");
         txt_search.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Pencarian");
     }
 
@@ -59,12 +60,14 @@ public class FiturProduk extends javax.swing.JPanel {
         txt_id = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
         lb_satuan = new javax.swing.JLabel();
-        lb_harga = new javax.swing.JLabel();
+        lb_hargaBeli = new javax.swing.JLabel();
         lb_stok = new javax.swing.JLabel();
         txt_nama = new javax.swing.JTextField();
         txt_stok = new javax.swing.JTextField();
-        txt_harga = new javax.swing.JTextField();
+        txt_hargaBeli = new javax.swing.JTextField();
         cb_satuan = new javax.swing.JComboBox<>();
+        lb_hargaJual = new javax.swing.JLabel();
+        txt_hargaJual = new javax.swing.JTextField();
 
         setLayout(new java.awt.CardLayout());
 
@@ -116,6 +119,7 @@ public class FiturProduk extends javax.swing.JPanel {
 
             }
         ));
+        tbl_data.setRowHeight(30);
         tbl_data.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tbl_dataMouseClicked(evt);
@@ -172,21 +176,21 @@ public class FiturProduk extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
-                    .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addGroup(panelViewLayout.createSequentialGroup()
                             .addComponent(btn_add)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btn_delete)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(btn_batal)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 387, Short.MAX_VALUE)
                             .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 670, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelViewLayout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel1)))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+                        .addGroup(panelViewLayout.createSequentialGroup()
+                            .addGap(0, 0, Short.MAX_VALUE)
+                            .addComponent(jLabel3)
+                            .addGap(5, 5, 5)
+                            .addComponent(jLabel1))))
                 .addGap(10, 10, 10))
         );
         panelViewLayout.setVerticalGroup(
@@ -194,21 +198,21 @@ public class FiturProduk extends javax.swing.JPanel {
             .addGroup(panelViewLayout.createSequentialGroup()
                 .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelViewLayout.createSequentialGroup()
-                        .addContainerGap()
+                        .addGap(10, 10, 10)
                         .addComponent(jLabel1))
                     .addGroup(panelViewLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(12, 12, 12)
                         .addComponent(jLabel3)))
-                .addGap(14, 14, 14)
+                .addGap(10, 10, 10)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(panelViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_add, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_delete, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txt_search, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_batal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(15, 15, 15)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
                 .addGap(10, 10, 10))
         );
 
@@ -257,8 +261,8 @@ public class FiturProduk extends javax.swing.JPanel {
         lb_satuan.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lb_satuan.setText("Satuan");
 
-        lb_harga.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        lb_harga.setText("Harga");
+        lb_hargaBeli.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lb_hargaBeli.setText("Harga Beli");
 
         lb_stok.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lb_stok.setText("Stok");
@@ -269,79 +273,91 @@ public class FiturProduk extends javax.swing.JPanel {
         txt_stok.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
         txt_stok.setForeground(new java.awt.Color(102, 102, 102));
 
-        txt_harga.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        txt_harga.setForeground(new java.awt.Color(102, 102, 102));
+        txt_hargaBeli.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_hargaBeli.setForeground(new java.awt.Color(102, 102, 102));
 
         cb_satuan.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--- Pilih Satuan ---", "Liter", "Pcs" }));
+
+        lb_hargaJual.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        lb_hargaJual.setText("Harga Jual");
+
+        txt_hargaJual.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_hargaJual.setForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
         panelAddLayout.setHorizontalGroup(
             panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
-                .addContainerGap(10, Short.MAX_VALUE)
-                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(cb_satuan, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(lb_satuan)
-                        .addComponent(lb_id)
-                        .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lb_nama)
-                            .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
-                                    .addComponent(btn_save)
-                                    .addGap(10, 10, 10)
-                                    .addComponent(btn_cancel)
-                                    .addGap(304, 304, 304)
-                                    .addComponent(jLabel5)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel2)))
+            .addGroup(panelAddLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAddLayout.createSequentialGroup()
+                        .addComponent(lb_hargaJual)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelAddLayout.createSequentialGroup()
+                        .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txt_id)
-                            .addComponent(txt_nama)))
-                    .addComponent(lb_harga)
-                    .addComponent(lb_stok)
-                    .addComponent(txt_stok)
-                    .addComponent(txt_harga, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(10, 10, 10))
+                            .addComponent(txt_nama)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(7, 7, 7)
+                                .addComponent(jLabel2))
+                            .addComponent(txt_hargaJual, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addGroup(panelAddLayout.createSequentialGroup()
+                                .addComponent(btn_save)
+                                .addGap(10, 10, 10)
+                                .addComponent(btn_cancel))
+                            .addComponent(lb_satuan)
+                            .addComponent(lb_id)
+                            .addComponent(lb_nama)
+                            .addComponent(lb_stok)
+                            .addComponent(lb_hargaBeli)
+                            .addComponent(txt_stok)
+                            .addComponent(cb_satuan, 0, 890, Short.MAX_VALUE)
+                            .addComponent(txt_hargaBeli))
+                        .addGap(10, 10, 10))))
         );
         panelAddLayout.setVerticalGroup(
             panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelAddLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
                     .addGroup(panelAddLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2))
-                    .addGroup(panelAddLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
+                        .addGap(3, 3, 3)
                         .addComponent(jLabel5)))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel6)
-                .addGap(11, 11, 11)
+                .addGap(10, 10, 10)
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_save, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_cancel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(lb_id)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(lb_nama)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(txt_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(lb_satuan)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(cb_satuan, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(lb_stok)
-                .addGap(2, 2, 2)
+                .addGap(10, 10, 10)
                 .addComponent(txt_stok, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
-                .addComponent(lb_harga)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txt_harga, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(10, 10, 10))
+                .addComponent(lb_hargaBeli)
+                .addGap(10, 10, 10)
+                .addComponent(txt_hargaBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(lb_hargaJual)
+                .addGap(10, 10, 10)
+                .addComponent(txt_hargaJual, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         panelMain.add(panelAdd, "card2");
@@ -420,7 +436,8 @@ public class FiturProduk extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lb_harga;
+    private javax.swing.JLabel lb_hargaBeli;
+    private javax.swing.JLabel lb_hargaJual;
     private javax.swing.JLabel lb_id;
     private javax.swing.JLabel lb_nama;
     private javax.swing.JLabel lb_satuan;
@@ -429,7 +446,8 @@ public class FiturProduk extends javax.swing.JPanel {
     private javax.swing.JPanel panelMain;
     private javax.swing.JPanel panelView;
     private javax.swing.JTable tbl_data;
-    private javax.swing.JTextField txt_harga;
+    private javax.swing.JTextField txt_hargaBeli;
+    private javax.swing.JTextField txt_hargaJual;
     private javax.swing.JTextField txt_id;
     private javax.swing.JTextField txt_nama;
     private javax.swing.JTextField txt_search;
@@ -454,7 +472,8 @@ public class FiturProduk extends javax.swing.JPanel {
         txt_nama.setText("");
         cb_satuan.setSelectedIndex(0);
         txt_stok.setText("0");
-        txt_harga.setText("0");
+        txt_hargaBeli.setText("0");
+        txt_hargaJual.setText("0");
     }
 
     private void setTabelModel() {
@@ -463,7 +482,8 @@ public class FiturProduk extends javax.swing.JPanel {
         model.addColumn("Nama Produk");
         model.addColumn("Satuan");
         model.addColumn("Stok");
-        model.addColumn("Harga");
+        model.addColumn("Harga Beli");
+        model.addColumn("Harga Jual");
     }
 
     private void getData(DefaultTableModel model) {
@@ -479,9 +499,10 @@ public class FiturProduk extends javax.swing.JPanel {
                     String namaProduk   = rs.getString("nama_produk");
                     String satuan       = rs.getString("satuan");
                     int stok            = rs.getInt("stok");
-                    int harga           = rs.getInt("harga");
+                    int hargaBeli       = rs.getInt("harga_beli");
+                    int hargaJual       = rs.getInt("harga_jual");
                     
-                    Object[] rowData = {idProduk, namaProduk, satuan, stok, harga};
+                    Object[] rowData = {idProduk, namaProduk, satuan, stok, hargaBeli, hargaJual};
                     model.addRow(rowData);
                 }
             }
@@ -527,24 +548,27 @@ public class FiturProduk extends javax.swing.JPanel {
         String namaProduk = txt_nama.getText();
         String satuan = cb_satuan.getSelectedItem().toString();   
         String stokText = txt_stok.getText();  
-        String hargaText = txt_harga.getText();
+        String hargaBeliText = txt_hargaBeli.getText();
+        String hargaJualText = txt_hargaJual.getText();
         
-         if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaText.isEmpty()) {
+         if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaBeliText.isEmpty() || hargaJualText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
         //Convert String ke Integer
         int stok = Integer.parseInt(stokText);
-        int harga = Integer.parseInt(hargaText);
+        int hargaBeli = Integer.parseInt(hargaBeliText);
+        int hargaJual = Integer.parseInt(hargaJualText);
         
         try {
-            String sql = "INSERT INTO produk (id_produk, nama_produk, satuan, stok, harga) VALUES (?,?,?,?,?)";
+            String sql = "INSERT INTO produk (id_produk, nama_produk, satuan, stok, harga_beli, harga_jual) VALUES (?,?,?,?,?,?)";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, idProduk);
             st.setString(2, namaProduk);
             st.setString(3, satuan);
             st.setInt(4, stok);
-            st.setInt(5, harga);
+            st.setInt(5, hargaBeli);
+            st.setInt(6, hargaJual);
             
             int rowInserted = st.executeUpdate();
             if(rowInserted > 0){
@@ -565,16 +589,14 @@ public class FiturProduk extends javax.swing.JPanel {
         int row = tbl_data.getSelectedRow();
         jLabel6.setText("Perbarui Data Produk SiLoang");
         
-        //txt_id.setEditable(false); //Gabisa diedit
         txt_id.setEnabled(false);  //Gabisa diklik
-        txt_id.setDisabledTextColor(new Color(102, 102, 102)); 
-        txt_id.setBackground(new Color(240, 240, 240));
         
         txt_id.setText(tbl_data.getValueAt(row, 0).toString());            // kolom 0 = ID Produk
         txt_nama.setText(tbl_data.getValueAt(row, 1).toString());          // kolom 1 = Nama Produk 
         cb_satuan.setSelectedItem(tbl_data.getValueAt(row, 2).toString()); // kolom 2 = Satuan
         txt_stok.setText(tbl_data.getValueAt(row, 3).toString());          // kolom 3 = Stok
-        txt_harga.setText(tbl_data.getValueAt(row, 4).toString());         // kolom 4 = Harga
+        txt_hargaBeli.setText(tbl_data.getValueAt(row, 4).toString());     // kolom 4 = Harga Beli
+        txt_hargaJual.setText(tbl_data.getValueAt(row, 5).toString());     // kolom 5 = Harga Jual
     }
     
     private void updateData() {
@@ -582,24 +604,27 @@ public class FiturProduk extends javax.swing.JPanel {
         String namaProduk = txt_nama.getText();
         String satuan = cb_satuan.getSelectedItem().toString();   
         String stokText = txt_stok.getText();  
-        String hargaText = txt_harga.getText();
+        String hargaBeliText = txt_hargaBeli.getText();
+        String hargaJualText = txt_hargaJual.getText();
         
-        if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaText.isEmpty()) {
+        if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaBeliText.isEmpty() || hargaJualText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }
         //Convert String ke Integer
         int stok = Integer.parseInt(stokText);
-        int harga = Integer.parseInt(hargaText);
+        int hargaBeli = Integer.parseInt(hargaBeliText);
+        int hargaJual = Integer.parseInt(hargaJualText);
         
         try {
-            String sql = "UPDATE produk SET nama_produk=?, satuan=?, stok=?, harga=? WHERE id_produk=?";
+            String sql = "UPDATE produk SET nama_produk=?, satuan=?, stok=?, harga_beli=?, harga_jual=? WHERE id_produk=?";
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, namaProduk);
             st.setString(2, satuan);
             st.setInt(3, stok);
-            st.setInt(4, harga);
-            st.setString(5, idProduk);
+            st.setInt(4, hargaBeli);
+            st.setInt(5, hargaJual);
+            st.setString(6, idProduk);
             
             int rowUpdated = st.executeUpdate();
             if(rowUpdated > 0){
@@ -661,9 +686,10 @@ public class FiturProduk extends javax.swing.JPanel {
                     String namaProduk   = rs.getString("nama_produk");
                     String satuan       = rs.getString("satuan");
                     int stok            = rs.getInt("stok");
-                    int harga           = rs.getInt("harga");
+                    int hargaBeli       = rs.getInt("harga_beli");
+                    int hargaJual       = rs.getInt("harga_jual");
                     
-                    Object[] rowData = {idProduk, namaProduk, satuan, stok, harga};
+                    Object[] rowData = {idProduk, namaProduk, satuan, stok, hargaBeli, hargaJual};
                     model.addRow(rowData);
                 }
             }

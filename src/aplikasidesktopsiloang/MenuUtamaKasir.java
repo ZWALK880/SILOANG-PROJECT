@@ -11,8 +11,15 @@ import javax.swing.*;
 
 public class MenuUtamaKasir extends javax.swing.JFrame {
     
+    private String userID;
+
     public MenuUtamaKasir() {
         initComponents();
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 
     @SuppressWarnings("unchecked")
@@ -54,7 +61,7 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
         lb_admin.setBackground(new java.awt.Color(255, 255, 255));
         lb_admin.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         lb_admin.setForeground(new java.awt.Color(255, 255, 255));
-        lb_admin.setText("KASIR");
+        lb_admin.setText("K A S I R");
 
         javax.swing.GroupLayout pn_profilLayout = new javax.swing.GroupLayout(pn_profil);
         pn_profil.setLayout(pn_profilLayout);
@@ -229,9 +236,9 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
                 .addComponent(pn_profil, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(10, 10, 10)
                 .addComponent(pn_btnProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -265,7 +272,7 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
         pn_navbarLayout.setHorizontalGroup(
             pn_navbarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_navbarLayout.createSequentialGroup()
-                .addContainerGap(627, Short.MAX_VALUE)
+                .addContainerGap(959, Short.MAX_VALUE)
                 .addComponent(lb_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(icon_logout)
@@ -325,7 +332,7 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
             pn_dasarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pn_dasarLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 403, Short.MAX_VALUE)
+                .addComponent(pn_utama, javax.swing.GroupLayout.DEFAULT_SIZE, 590, Short.MAX_VALUE)
                 .addGap(20, 20, 20)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -367,7 +374,7 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
 
     private void lb_penjualanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_penjualanMouseClicked
         pn_utama.removeAll();
-        pn_utama.add(new FiturPenjualan());
+        pn_utama.add(new FiturPenjualan(getUserID()));
         pn_utama.repaint();
         pn_utama.revalidate();
     }//GEN-LAST:event_lb_penjualanMouseClicked
@@ -444,6 +451,4 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
     private javax.swing.JPanel pn_utama;
     // End of variables declaration//GEN-END:variables
 
-
-    
 }

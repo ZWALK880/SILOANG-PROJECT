@@ -39,19 +39,19 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Component id="pn_profil" alignment="0" pref="1240" max="32767" attributes="0"/>
+              <Component id="pn_profil" alignment="0" pref="216" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="pn_btnProduk" max="32767" attributes="0"/>
                       <Component id="pn_btnPenjualan" max="32767" attributes="0"/>
-                      <Component id="pn_btnPengeluaran" max="32767" attributes="0"/>
+                      <Component id="pn_btnPembelian" max="32767" attributes="0"/>
                       <Component id="pn_btnDashboard" alignment="1" max="32767" attributes="0"/>
                       <Component id="pn_btnKeuangan" max="32767" attributes="0"/>
                       <Component id="jLabel11" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
                       <Component id="jLabel1" alignment="1" min="-2" pref="170" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="1044" max="32767" attributes="0"/>
+                  <EmptySpace pref="20" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -73,13 +73,13 @@
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="pn_btnPenjualan" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                  <Component id="pn_btnPengeluaran" min="-2" max="-2" attributes="0"/>
+                  <Component id="pn_btnPembelian" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                   <Component id="pn_btnKeuangan" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="156" max="32767" attributes="0"/>
-                  <Component id="jLabel3" min="-2" pref="16" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -436,7 +436,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="pn_btnPengeluaran">
+        <Container class="javax.swing.JPanel" name="pn_btnPembelian">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ab" green="61" red="11" type="rgb"/>
@@ -519,7 +519,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pengeluaran"/>
+                <Property name="text" type="java.lang.String" value="Pembelian"/>
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lb_pengeluaranMouseClicked"/>
@@ -635,6 +635,9 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
           <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="SansSerif" size="10" style="1"/>
             </Property>
@@ -642,7 +645,7 @@
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="AppSiLoang v1.0.24"/>
+            <Property name="text" type="java.lang.String" value="AppSiLoang v2.0.24"/>
           </Properties>
         </Component>
       </SubComponents>
@@ -677,7 +680,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace pref="1175" max="32767" attributes="0"/>
+                      <EmptySpace pref="959" max="32767" attributes="0"/>
                       <Component id="lb_logout" min="-2" pref="43" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="icon_logout" min="-2" max="-2" attributes="0"/>
@@ -743,7 +746,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                      <Component id="pn_utama" max="32767" attributes="0"/>
+                      <Component id="pn_utama" pref="590" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
                   </Group>

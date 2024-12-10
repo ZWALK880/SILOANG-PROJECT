@@ -333,7 +333,7 @@ public class Login extends javax.swing.JFrame {
         return valid;
     }
 
-    private boolean checkLogin(String email, String password) {
+    private String checkLogin(String email, String password) {
         if (conn != null) {
             try {
                 String sql = "SELECT * FROM user WHERE email=? AND password=?";
@@ -343,54 +343,29 @@ public class Login extends javax.swing.JFrame {
 
                 ResultSet rs = st.executeQuery();
                 if (rs.next()) {
-                    return true;
+                    // Mengembalikan id_user sebagai String jika login berhasil
+                    return rs.getString("id_user");
                 }
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-        return false;
+        return null; // Mengembalikan null jika login gagal
     }
 
     private void prosesLogin() {
         if (validasiInput()) {
             String email = tf_email.getText();
             String password = new String(tf_password.getPassword());
+            
+            String userID = checkLogin(email, password);
 
-            if (checkLogin(email, password)) {
-                try {
-                    String sql = "SELECT level FROM user WHERE email=? AND password=?";
-                    PreparedStatement st = conn.prepareStatement(sql);
-                    st.setString(1, email);
-                    st.setString(2, password);
-
-                    ResultSet rs = st.executeQuery();
-                    if (rs.next()) {
-                        String level = rs.getString("level");
-
-                        switch (level) {
-                            case "Kasir":
-                                MenuUtamaKasir mnk = new MenuUtamaKasir();
-                                mnk.setVisible(true);
-                                this.setVisible(false);
-                                JOptionPane.showMessageDialog(this, "Selamat datang, Kasir!");
-                                break;
-
-                            case "Admin":
-                                MenuUtama mn = new MenuUtama();
-                                mn.setVisible(true);
-                                this.setVisible(false);
-                                JOptionPane.showMessageDialog(this, "Selamat datang, Owner!");
-                                break;
-
-                            default:
-                                JOptionPane.showMessageDialog(this, "Level tidak dikenal.");
-                                break;
-                        }
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+            if (userID != null) {
+                MenuUtama mn = new MenuUtama(userID); // Mengirim nilai id_user ke MenuUtama
+                mn.setVisible(true);
+                mn.revalidate();
+                
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Email atau Password salah!");
             }
