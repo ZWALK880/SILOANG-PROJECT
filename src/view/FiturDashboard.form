@@ -403,7 +403,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/img/icon_payment.png"/>
+                      <Image iconType="3" name="/img/icon_totPemasukan.png"/>
                     </Property>
                   </Properties>
                 </Component>
@@ -568,7 +568,7 @@
                   <Properties>
                     <Property name="horizontalAlignment" type="int" value="0"/>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/img/icon_troli.png"/>
+                      <Image iconType="3" name="/img/icon_jmlPelanggan.png"/>
                     </Property>
                   </Properties>
                 </Component>
