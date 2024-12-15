@@ -1,5 +1,6 @@
 package aplikasidesktopsiloang;
 
+import view.FiturLogin;
 import view.FiturProduk;
 import view.FiturPenjualan;
 import java.awt.Color;
@@ -8,12 +9,13 @@ import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import view.FiturPelanggan;
 
 public class MenuUtamaKasir extends javax.swing.JFrame {
-    
+
     private String userID;
 
-    public MenuUtamaKasir() {
+    public MenuUtamaKasir(String userID) {
         initComponents();
         this.userID = userID;
     }
@@ -39,6 +41,12 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
         pn_line2 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         lb_penjualan = new javax.swing.JLabel();
+        pn_btnPelanggan = new javax.swing.JPanel();
+        pn_line3 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        lb_pelanggan = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         pn_kanan = new javax.swing.JPanel();
         pn_navbar = new javax.swing.JPanel();
         lb_logout = new javax.swing.JLabel();
@@ -217,6 +225,79 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        pn_btnPelanggan.setBackground(new java.awt.Color(17, 97, 171));
+
+        pn_line3.setBackground(new java.awt.Color(17, 97, 171));
+
+        javax.swing.GroupLayout pn_line3Layout = new javax.swing.GroupLayout(pn_line3);
+        pn_line3.setLayout(pn_line3Layout);
+        pn_line3Layout.setHorizontalGroup(
+            pn_line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 5, Short.MAX_VALUE)
+        );
+        pn_line3Layout.setVerticalGroup(
+            pn_line3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 25, Short.MAX_VALUE)
+        );
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_pelanggan.png"))); // NOI18N
+
+        lb_pelanggan.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_pelanggan.setForeground(new java.awt.Color(255, 255, 255));
+        lb_pelanggan.setText("Pelanggan");
+        lb_pelanggan.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lb_pelangganMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                lb_pelangganMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                lb_pelangganMouseExited(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pn_btnPelangganLayout = new javax.swing.GroupLayout(pn_btnPelanggan);
+        pn_btnPelanggan.setLayout(pn_btnPelangganLayout);
+        pn_btnPelangganLayout.setHorizontalGroup(
+            pn_btnPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPelangganLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lb_pelanggan)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(pn_btnPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPelangganLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(126, Short.MAX_VALUE)))
+        );
+        pn_btnPelangganLayout.setVerticalGroup(
+            pn_btnPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pn_btnPelangganLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pn_btnPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(lb_pelanggan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+            .addGroup(pn_btnPelangganLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(pn_btnPelangganLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(pn_line3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+        );
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setText("Transaksi");
+
+        jLabel3.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel3.setFont(new java.awt.Font("SansSerif", 1, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(204, 204, 204));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("AppSiLoang v2.0.24");
+
         javax.swing.GroupLayout pn_kiriLayout = new javax.swing.GroupLayout(pn_kiri);
         pn_kiri.setLayout(pn_kiriLayout);
         pn_kiriLayout.setHorizontalGroup(
@@ -224,11 +305,18 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
             .addComponent(pn_profil, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
             .addGroup(pn_kiriLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pn_btnProduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(pn_btnProduk, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pn_btnPelanggan, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(20, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pn_kiriLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         pn_kiriLayout.setVerticalGroup(
             pn_kiriLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,8 +327,14 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addComponent(pn_btnProduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
+                .addComponent(pn_btnPelanggan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel2)
+                .addGap(10, 10, 10)
                 .addComponent(pn_btnPenjualan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 402, Short.MAX_VALUE)
+                .addComponent(jLabel3)
+                .addGap(5, 5, 5))
         );
 
         getContentPane().add(pn_kiri, java.awt.BorderLayout.LINE_START);
@@ -346,23 +440,23 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lb_produkMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_produkMouseEntered
-        pn_btnProduk.setBackground(new Color(28,179,228));
-        pn_line1.setBackground(new Color(3,78,143));
+        pn_btnProduk.setBackground(new Color(28, 179, 228));
+        pn_line1.setBackground(new Color(3, 78, 143));
     }//GEN-LAST:event_lb_produkMouseEntered
 
     private void lb_produkMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_produkMouseExited
-        pn_btnProduk.setBackground(new Color(17,97,171));
-        pn_line1.setBackground(new Color(17,97,171));
+        pn_btnProduk.setBackground(new Color(17, 97, 171));
+        pn_line1.setBackground(new Color(17, 97, 171));
     }//GEN-LAST:event_lb_produkMouseExited
 
     private void lb_penjualanMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_penjualanMouseEntered
-        pn_btnPenjualan.setBackground(new Color(28,179,228));
-        pn_line2.setBackground(new Color(3,78,143));
+        pn_btnPenjualan.setBackground(new Color(28, 179, 228));
+        pn_line2.setBackground(new Color(3, 78, 143));
     }//GEN-LAST:event_lb_penjualanMouseEntered
 
     private void lb_penjualanMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_penjualanMouseExited
-        pn_btnPenjualan.setBackground(new Color(17,97,171));
-        pn_line2.setBackground(new Color(17,97,171));
+        pn_btnPenjualan.setBackground(new Color(17, 97, 171));
+        pn_line2.setBackground(new Color(17, 97, 171));
     }//GEN-LAST:event_lb_penjualanMouseExited
 
     private void lb_produkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_produkMouseClicked
@@ -381,15 +475,32 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
 
     private void lb_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_logoutMouseClicked
         this.dispose();
-        Login LoginFrame = new Login();
+        FiturLogin LoginFrame = new FiturLogin();
         LoginFrame.setVisible(true);
     }//GEN-LAST:event_lb_logoutMouseClicked
 
     private void icon_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_logoutMouseClicked
         this.dispose();
-        Login LoginFrame = new Login();
+        FiturLogin LoginFrame = new FiturLogin();
         LoginFrame.setVisible(true);
     }//GEN-LAST:event_icon_logoutMouseClicked
+
+    private void lb_pelangganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pelangganMouseClicked
+        pn_utama.removeAll();
+        pn_utama.add(new FiturPelanggan(getUserID()));
+        pn_utama.repaint();
+        pn_utama.revalidate();
+    }//GEN-LAST:event_lb_pelangganMouseClicked
+
+    private void lb_pelangganMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pelangganMouseEntered
+        pn_btnPelanggan.setBackground(new Color(28, 179, 228));
+        pn_line3.setBackground(new Color(3, 78, 143));
+    }//GEN-LAST:event_lb_pelangganMouseEntered
+
+    private void lb_pelangganMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pelangganMouseExited
+        pn_btnPelanggan.setBackground(new Color(17, 97, 171));
+        pn_line3.setBackground(new Color(17, 97, 171));
+    }//GEN-LAST:event_lb_pelangganMouseExited
 
     /**
      * @param args the command line arguments
@@ -422,7 +533,8 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuUtamaKasir().setVisible(true);
+                String userID = "";
+                new MenuUtamaKasir(userID).setVisible(true);
             }
         });
     }
@@ -430,15 +542,20 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel icon_logout;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel lb_admin;
     private javax.swing.JLabel lb_akun;
     private javax.swing.JLabel lb_logout;
+    private javax.swing.JLabel lb_pelanggan;
     private javax.swing.JLabel lb_penjualan;
     private javax.swing.JLabel lb_produk;
+    private javax.swing.JPanel pn_btnPelanggan;
     private javax.swing.JPanel pn_btnPenjualan;
     private javax.swing.JPanel pn_btnProduk;
     private javax.swing.JPanel pn_dasar;
@@ -446,6 +563,7 @@ public class MenuUtamaKasir extends javax.swing.JFrame {
     private javax.swing.JPanel pn_kiri;
     private javax.swing.JPanel pn_line1;
     private javax.swing.JPanel pn_line2;
+    private javax.swing.JPanel pn_line3;
     private javax.swing.JPanel pn_navbar;
     private javax.swing.JPanel pn_profil;
     private javax.swing.JPanel pn_utama;

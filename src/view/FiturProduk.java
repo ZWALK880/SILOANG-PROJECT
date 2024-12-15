@@ -551,7 +551,7 @@ public class FiturProduk extends javax.swing.JPanel {
         String hargaBeliText = txt_hargaBeli.getText();
         String hargaJualText = txt_hargaJual.getText();
         
-         if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaBeliText.isEmpty() || hargaJualText.isEmpty()) {
+        if(idProduk.isEmpty() || namaProduk.isEmpty() || satuan.isEmpty() || stokText.isEmpty() || hargaBeliText.isEmpty() || hargaJualText.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
             return;
         }

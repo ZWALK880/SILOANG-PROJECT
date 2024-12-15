@@ -77,7 +77,7 @@ public class FiturPelanggan extends javax.swing.JPanel {
         panelMain.setLayout(new java.awt.CardLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setText("Data Master > Produk");
+        jLabel1.setText("Data Master > Pelanggan");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_product15px.png"))); // NOI18N

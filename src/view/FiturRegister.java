@@ -1,5 +1,6 @@
-package aplikasidesktopsiloang;
+package view;
 
+import view.FiturLogin;
 import Config.Koneksi;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,13 +8,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class Register extends javax.swing.JFrame {
+public class FiturRegister extends javax.swing.JFrame {
     
     private Connection conn;
     private PreparedStatement st;
     private ResultSet rs;
 
-    public Register() {
+    public FiturRegister() {
         initComponents();
         conn = Koneksi.getConnection();
         lb_hidePassword.setVisible(false);
@@ -99,11 +100,6 @@ public class Register extends javax.swing.JFrame {
         lb_fullName.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         lb_fullName.setForeground(new java.awt.Color(255, 255, 255));
         lb_fullName.setText("Full Name");
-        lb_fullName.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentHidden(java.awt.event.ComponentEvent evt) {
-                lb_fullNameComponentHidden(evt);
-            }
-        });
         bg_right.add(lb_fullName, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 158, -1, -1));
 
         tf_nama.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -147,16 +143,6 @@ public class Register extends javax.swing.JFrame {
         bt_signUp.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         bt_signUp.setForeground(new java.awt.Color(255, 255, 255));
         bt_signUp.setText("Sign Up");
-        bt_signUp.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                bt_signUpMouseClicked(evt);
-            }
-        });
-        bt_signUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_signUpActionPerformed(evt);
-            }
-        });
         bg_right.add(bt_signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 385, 230, 40));
 
         jPanel1.add(bg_right);
@@ -177,10 +163,6 @@ public class Register extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lb_fullNameComponentHidden(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_lb_fullNameComponentHidden
-        // TODO add your handling code here:
-    }//GEN-LAST:event_lb_fullNameComponentHidden
-
     private void lb_hidePasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_hidePasswordMouseClicked
         lb_showPassword.setVisible(true);
         lb_hidePassword.setVisible(false);
@@ -195,20 +177,9 @@ public class Register extends javax.swing.JFrame {
 
     private void lb_arrowBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_arrowBackMouseClicked
         this.dispose();
-        Login LoginFrame = new Login();
+        FiturLogin LoginFrame = new FiturLogin();
         LoginFrame.setVisible(true);
     }//GEN-LAST:event_lb_arrowBackMouseClicked
-
-    private void bt_signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_signUpMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_signUpMouseClicked
-
-    private void bt_signUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_signUpActionPerformed
-        if (tf_nama.getText().isEmpty() || tf_email.getText().isEmpty() || tf_email.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
-        }
-        registerUser();
-    }//GEN-LAST:event_bt_signUpActionPerformed
 
     /**
      * @param args the command line arguments
@@ -227,20 +198,21 @@ public class Register extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiturRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiturRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiturRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Register.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FiturRegister.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new FiturRegister().setVisible(true);
             }
         });
     }
@@ -304,7 +276,7 @@ private void registerUser() {
             if (rowsAffected > 0) {
                 JOptionPane.showMessageDialog(this, "Registrasi Berhasil");
                 clearForm();
-                new Login().setVisible(true);
+                new FiturLogin().setVisible(true);
                 this.dispose();
             } else {
                 JOptionPane.showMessageDialog(this, "Registrasi Gagal");

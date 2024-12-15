@@ -1,4 +1,4 @@
-package aplikasidesktopsiloang;
+package view;
 
 import Config.Koneksi;
 import com.formdev.flatlaf.FlatClientProperties;
@@ -10,13 +10,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
-public class ForgotPassword extends javax.swing.JFrame {
+public class FiturForgotPassword extends javax.swing.JFrame {
     
     private Connection conn;
     private PreparedStatement st;
     private ResultSet rs;
 
-    public ForgotPassword() {
+    public FiturForgotPassword() {
         initComponents();
         conn = Koneksi.getConnection();
         lb_hidePass.setVisible(false);
@@ -129,11 +129,6 @@ public class ForgotPassword extends javax.swing.JFrame {
                 bt_updatePasswordMouseClicked(evt);
             }
         });
-        bt_updatePassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bt_updatePasswordActionPerformed(evt);
-            }
-        });
         bg_right.add(bt_updatePassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 380, 230, 40));
 
         lb_passLama.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -142,16 +137,6 @@ public class ForgotPassword extends javax.swing.JFrame {
         bg_right.add(lb_passLama, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 210, -1, 30));
 
         tf_email.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tf_email.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tf_emailActionPerformed(evt);
-            }
-        });
-        tf_email.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                tf_emailKeyTyped(evt);
-            }
-        });
         bg_right.add(tf_email, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 170, 230, 40));
 
         lb_hidePass1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -218,23 +203,11 @@ public class ForgotPassword extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void bt_updatePasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_updatePasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_bt_updatePasswordActionPerformed
-
     private void lb_arrowBackMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_arrowBackMouseClicked
         this.dispose();
-        Login LoginFrame = new Login();
+        FiturLogin LoginFrame = new FiturLogin();
         LoginFrame.setVisible(true);
     }//GEN-LAST:event_lb_arrowBackMouseClicked
-
-    private void tf_emailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tf_emailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_emailActionPerformed
-
-    private void tf_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tf_emailKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tf_emailKeyTyped
 
     private void bt_updatePasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_updatePasswordMouseClicked
         if (tf_email.getText().isEmpty() || 
@@ -279,7 +252,7 @@ public class ForgotPassword extends javax.swing.JFrame {
         
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ForgotPassword().setVisible(true);
+                new FiturForgotPassword().setVisible(true);
             }
         });
     }
@@ -328,7 +301,7 @@ public class ForgotPassword extends javax.swing.JFrame {
                 if (rowsAffected > 0) {
                     JOptionPane.showMessageDialog(this, "Password berhasil diperbarui");
                     clearForm();
-                    new Login().setVisible(true);
+                    new FiturLogin().setVisible(true);
                     this.dispose();
                 }
             } else {

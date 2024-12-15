@@ -6,7 +6,7 @@ import view.FiturProduk;
 import view.FiturPelanggan;
 import view.FiturSupplier;
 import view.FiturPenjualan;
-//import view.FiturPengeluaran;
+import view.FiturPembelian;
 //import view.FiturKeuangan;
 import java.awt.Color;
 import java.awt.PopupMenu;
@@ -52,7 +52,7 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_btnPembelian = new javax.swing.JPanel();
         pn_line3 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
-        lb_pengeluaran = new javax.swing.JLabel();
+        lb_pembelian = new javax.swing.JLabel();
         pn_btnKeuangan = new javax.swing.JPanel();
         pn_line4 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
@@ -328,18 +328,18 @@ public class MenuUtama extends javax.swing.JFrame {
         jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_pengeluaran.png"))); // NOI18N
         jLabel9.setText("jLabel9");
 
-        lb_pengeluaran.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lb_pengeluaran.setForeground(new java.awt.Color(255, 255, 255));
-        lb_pengeluaran.setText("Pembelian");
-        lb_pengeluaran.addMouseListener(new java.awt.event.MouseAdapter() {
+        lb_pembelian.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lb_pembelian.setForeground(new java.awt.Color(255, 255, 255));
+        lb_pembelian.setText("Pembelian");
+        lb_pembelian.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lb_pengeluaranMouseClicked(evt);
+                lb_pembelianMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                lb_pengeluaranMouseEntered(evt);
+                lb_pembelianMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                lb_pengeluaranMouseExited(evt);
+                lb_pembelianMouseExited(evt);
             }
         });
 
@@ -351,7 +351,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lb_pengeluaran, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lb_pembelian, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
             .addGroup(pn_btnPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pn_btnPembelianLayout.createSequentialGroup()
@@ -365,7 +365,7 @@ public class MenuUtama extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pn_btnPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
-                    .addComponent(lb_pengeluaran))
+                    .addComponent(lb_pembelian))
                 .addContainerGap())
             .addGroup(pn_btnPembelianLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(pn_btnPembelianLayout.createSequentialGroup()
@@ -654,6 +654,11 @@ public class MenuUtama extends javax.swing.JFrame {
 
         icon_logout.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         icon_logout.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_logout.png"))); // NOI18N
+        icon_logout.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                icon_logoutMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout pn_navbarLayout = new javax.swing.GroupLayout(pn_navbar);
         pn_navbar.setLayout(pn_navbarLayout);
@@ -753,15 +758,15 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_line2.setBackground(new Color(17,97,171));
     }//GEN-LAST:event_lb_penjualanMouseExited
 
-    private void lb_pengeluaranMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pengeluaranMouseEntered
+    private void lb_pembelianMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pembelianMouseEntered
         pn_btnPembelian.setBackground(new Color(28,179,228));
         pn_line3.setBackground(new Color(3,78,143));
-    }//GEN-LAST:event_lb_pengeluaranMouseEntered
+    }//GEN-LAST:event_lb_pembelianMouseEntered
 
-    private void lb_pengeluaranMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pengeluaranMouseExited
+    private void lb_pembelianMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pembelianMouseExited
         pn_btnPembelian.setBackground(new Color(17,97,171));
         pn_line3.setBackground(new Color(17,97,171));
-    }//GEN-LAST:event_lb_pengeluaranMouseExited
+    }//GEN-LAST:event_lb_pembelianMouseExited
 
     private void lb_keuanganMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_keuanganMouseEntered
         pn_btnKeuangan.setBackground(new Color(28,179,228));
@@ -804,12 +809,12 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_utama.revalidate();
     }//GEN-LAST:event_lb_dashboardMouseClicked
 
-    private void lb_pengeluaranMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pengeluaranMouseClicked
+    private void lb_pembelianMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_pembelianMouseClicked
         pn_utama.removeAll();
-        //pn_utama.add(new FiturPengeluaran());
+        pn_utama.add(new FiturPembelian(getUserID()));
         pn_utama.repaint();
         pn_utama.revalidate();
-    }//GEN-LAST:event_lb_pengeluaranMouseClicked
+    }//GEN-LAST:event_lb_pembelianMouseClicked
 
     private void lb_keuanganMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lb_keuanganMouseClicked
         pn_utama.removeAll();
@@ -857,6 +862,12 @@ public class MenuUtama extends javax.swing.JFrame {
         pn_btnSupplier.setBackground(new Color(17,97,171));
         pn_line6.setBackground(new Color(17,97,171));
     }//GEN-LAST:event_lb_supplierMouseExited
+
+    private void icon_logoutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_icon_logoutMouseClicked
+        this.dispose();
+        FiturLogin LoginFrame = new FiturLogin();
+        LoginFrame.setVisible(true);
+    }//GEN-LAST:event_icon_logoutMouseClicked
 
     /**
      * @param args the command line arguments
@@ -914,7 +925,7 @@ public class MenuUtama extends javax.swing.JFrame {
     private javax.swing.JLabel lb_keuangan;
     private javax.swing.JLabel lb_logout;
     private javax.swing.JLabel lb_pelanggan;
-    private javax.swing.JLabel lb_pengeluaran;
+    private javax.swing.JLabel lb_pembelian;
     private javax.swing.JLabel lb_penjualan;
     private javax.swing.JLabel lb_produk;
     private javax.swing.JLabel lb_supplier;

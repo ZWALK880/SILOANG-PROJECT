@@ -29,9 +29,10 @@ public class FiturSupplier extends javax.swing.JPanel {
         setTabelModel();
         loadData();
         
-        txt_id.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ID Produk");
-        txt_nama.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nama Produk");
-        txt_stok.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Stok Produk");
+        txt_idSupplier.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "ID Supplier");
+        txt_namaSupplier.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Nama");
+        txt_alamatSupplier.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Alamat");
+        txt_teleponSupplier.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "08xxxxxxxxxx");
         txt_search.putClientProperty(FlatClientProperties.PLACEHOLDER_TEXT, "Pencarian");
     }
     
@@ -57,13 +58,13 @@ public class FiturSupplier extends javax.swing.JPanel {
         btn_save = new javax.swing.JButton();
         btn_cancel = new javax.swing.JButton();
         lb_nama = new javax.swing.JLabel();
-        txt_id = new javax.swing.JTextField();
+        txt_idSupplier = new javax.swing.JTextField();
         lb_id = new javax.swing.JLabel();
         lb_satuan = new javax.swing.JLabel();
         lb_stok = new javax.swing.JLabel();
-        txt_nama = new javax.swing.JTextField();
-        txt_stok = new javax.swing.JTextField();
-        txt_nama1 = new javax.swing.JTextField();
+        txt_namaSupplier = new javax.swing.JTextField();
+        txt_teleponSupplier = new javax.swing.JTextField();
+        txt_alamatSupplier = new javax.swing.JTextField();
 
         setLayout(new java.awt.CardLayout());
 
@@ -215,13 +216,13 @@ public class FiturSupplier extends javax.swing.JPanel {
         panelMain.add(panelView, "card2");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setText("Data Master > Pelanggan");
+        jLabel2.setText("Data Master > Supplier");
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_product15px.png"))); // NOI18N
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel6.setText("Tambah Data Pelanggan SiLoang");
+        jLabel6.setText("Tambah Data Supplier SiLoang");
 
         btn_save.setBackground(new java.awt.Color(0, 0, 255));
         btn_save.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
@@ -248,8 +249,8 @@ public class FiturSupplier extends javax.swing.JPanel {
         lb_nama.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lb_nama.setText("Nama");
 
-        txt_id.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        txt_id.setForeground(new java.awt.Color(102, 102, 102));
+        txt_idSupplier.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_idSupplier.setForeground(new java.awt.Color(102, 102, 102));
 
         lb_id.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lb_id.setText("ID");
@@ -260,14 +261,14 @@ public class FiturSupplier extends javax.swing.JPanel {
         lb_stok.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         lb_stok.setText("Telepon");
 
-        txt_nama.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        txt_nama.setForeground(new java.awt.Color(102, 102, 102));
+        txt_namaSupplier.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_namaSupplier.setForeground(new java.awt.Color(102, 102, 102));
 
-        txt_stok.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        txt_stok.setForeground(new java.awt.Color(102, 102, 102));
+        txt_teleponSupplier.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_teleponSupplier.setForeground(new java.awt.Color(102, 102, 102));
 
-        txt_nama1.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
-        txt_nama1.setForeground(new java.awt.Color(102, 102, 102));
+        txt_alamatSupplier.setFont(new java.awt.Font("SansSerif", 2, 12)); // NOI18N
+        txt_alamatSupplier.setForeground(new java.awt.Color(102, 102, 102));
 
         javax.swing.GroupLayout panelAddLayout = new javax.swing.GroupLayout(panelAdd);
         panelAdd.setLayout(panelAddLayout);
@@ -276,8 +277,8 @@ public class FiturSupplier extends javax.swing.JPanel {
             .addGroup(panelAddLayout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txt_id, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
-                    .addComponent(txt_nama)
+                    .addComponent(txt_idSupplier, javax.swing.GroupLayout.DEFAULT_SIZE, 890, Short.MAX_VALUE)
+                    .addComponent(txt_namaSupplier)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAddLayout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addGap(7, 7, 7)
@@ -291,8 +292,8 @@ public class FiturSupplier extends javax.swing.JPanel {
                     .addComponent(lb_id)
                     .addComponent(lb_nama)
                     .addComponent(lb_stok)
-                    .addComponent(txt_stok)
-                    .addComponent(txt_nama1))
+                    .addComponent(txt_teleponSupplier)
+                    .addComponent(txt_alamatSupplier))
                 .addGap(10, 10, 10))
         );
         panelAddLayout.setVerticalGroup(
@@ -313,19 +314,19 @@ public class FiturSupplier extends javax.swing.JPanel {
                 .addGap(10, 10, 10)
                 .addComponent(lb_id)
                 .addGap(10, 10, 10)
-                .addComponent(txt_id, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_idSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lb_nama)
                 .addGap(10, 10, 10)
-                .addComponent(txt_nama, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_namaSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(10, 10, 10)
                 .addComponent(lb_satuan)
                 .addGap(8, 8, 8)
-                .addComponent(txt_nama1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_alamatSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lb_stok)
                 .addGap(10, 10, 10)
-                .addComponent(txt_stok, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txt_teleponSupplier, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(228, Short.MAX_VALUE))
         );
 
@@ -340,7 +341,7 @@ public class FiturSupplier extends javax.swing.JPanel {
         panelMain.repaint();
         panelMain.revalidate();
         
-        txt_id.setText(setIDProduk());
+        txt_idSupplier.setText(setIDProduk());
         if(btn_add.getText().equals("EDIT")){
             dataTabel();
             btn_save.setText("PERBARUI");
@@ -412,11 +413,11 @@ public class FiturSupplier extends javax.swing.JPanel {
     private javax.swing.JPanel panelMain;
     private javax.swing.JPanel panelView;
     private javax.swing.JTable tbl_data;
-    private javax.swing.JTextField txt_id;
-    private javax.swing.JTextField txt_nama;
-    private javax.swing.JTextField txt_nama1;
+    private javax.swing.JTextField txt_alamatSupplier;
+    private javax.swing.JTextField txt_idSupplier;
+    private javax.swing.JTextField txt_namaSupplier;
     private javax.swing.JTextField txt_search;
-    private javax.swing.JTextField txt_stok;
+    private javax.swing.JTextField txt_teleponSupplier;
     // End of variables declaration//GEN-END:variables
 
     private void loadData() {
@@ -433,38 +434,35 @@ public class FiturSupplier extends javax.swing.JPanel {
     }
     
     private void resetForm() {
-        txt_id.setText("");
-        txt_nama.setText("");
-        txt_stok.setText("0");
+        txt_idSupplier.setText("");
+        txt_namaSupplier.setText("");
+        txt_alamatSupplier.setText("");
+        txt_teleponSupplier.setText("");
     }
 
     private void setTabelModel() {
         DefaultTableModel model = (DefaultTableModel) tbl_data.getModel();
-        model.addColumn("ID Produk");
-        model.addColumn("Nama Produk");
-        model.addColumn("Satuan");
-        model.addColumn("Stok");
-        model.addColumn("Harga Beli");
-        model.addColumn("Harga Jual");
+        model.addColumn("ID Supplier");
+        model.addColumn("Nama Supplier");
+        model.addColumn("Alamat");
+        model.addColumn("Telepon");
     }
 
     private void getData(DefaultTableModel model) {
         model.setRowCount(0);
         
         try {
-            String sql = "SELECT * FROM produk";
+            String sql = "SELECT * FROM supplier";
             try (PreparedStatement st = conn.prepareStatement(sql)){
                 ResultSet rs = st.executeQuery();
                 
                 while (rs.next()) {
-                    String idProduk     = rs.getString("id_produk");
-                    String namaProduk   = rs.getString("nama_produk");
-                    String satuan       = rs.getString("satuan");
-                    int stok            = rs.getInt("stok");
-                    int hargaBeli       = rs.getInt("harga_beli");
-                    int hargaJual       = rs.getInt("harga_jual");
-                    
-                    Object[] rowData = {idProduk, namaProduk, satuan, stok, hargaBeli, hargaJual};
+                    String idSupplier          = rs.getString("id_supplier");
+                    String namaSupplier        = rs.getString("nama_supplier");
+                    String alamatSupplier      = rs.getString("alamat");
+                    String teleponSupplier     = rs.getString("telepon");
+                   
+                    Object[] rowData = {idSupplier, namaSupplier, alamatSupplier, teleponSupplier};
                     model.addRow(rowData);
                 }
             }
@@ -478,10 +476,10 @@ public class FiturSupplier extends javax.swing.JPanel {
         String urutan = null;
         
         try {
-            String sql = "SELECT RIGHT(id_produk, 3) AS LastNumber " +
-                         "FROM produk " +
-                         "WHERE id_produk LIKE 'SL%' " +
-                         "ORDER BY id_produk DESC " +
+            String sql = "SELECT RIGHT(id_supplier, 3) AS LastNumber " +
+                         "FROM supplier " +
+                         "WHERE id_supplier LIKE 'SP%' " +
+                         "ORDER BY id_supplier DESC " +
                          "LIMIT 1";
             
             PreparedStatement st = conn.prepareStatement(sql);
@@ -490,9 +488,9 @@ public class FiturSupplier extends javax.swing.JPanel {
             if (rs.next()) {
                 String lastNumber = rs.getString("LastNumber");
                 int nextNumber = Integer.parseInt(lastNumber) + 1;
-                urutan = String.format("SL%03d", nextNumber);
+                urutan = String.format("SP%03d", nextNumber);
             } else {
-                urutan = "SL001";
+                urutan = "SP001";
             }
         
             rs.close();
@@ -500,26 +498,24 @@ public class FiturSupplier extends javax.swing.JPanel {
             
         } catch (SQLException e) {
             java.util.logging.Logger.getLogger(FiturSupplier.class.getName()).log(Level.SEVERE,null,e);
-            urutan = "SL001";
+            urutan = "SP001";
         } 
         return urutan;
     }
 
     private void insertData() {
-        String idProduk = txt_id.getText();
-        String namaProduk = txt_nama.getText();
-        String stokText = txt_stok.getText();  
-        
-        
-        //Convert String ke Integer
-        int stok = Integer.parseInt(stokText);
+        String idSupplier = txt_idSupplier.getText();
+        String namaSupplier = txt_namaSupplier.getText();
+        String alamatSupplier = txt_alamatSupplier.getText();  
+        String teleponSupplier = txt_teleponSupplier.getText();  
         
         try {
-            String sql = "INSERT INTO produk (id_produk, nama_produk, satuan, stok, harga_beli, harga_jual) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO supplier (id_supplier, nama_supplier, alamat, telepon) VALUES (?,?,?,?)";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, idProduk);
-            st.setString(2, namaProduk);
-            st.setInt(4, stok);
+            st.setString(1, idSupplier);
+            st.setString(2, namaSupplier);
+            st.setString(3, alamatSupplier);
+            st.setString(4, teleponSupplier);
             
             int rowInserted = st.executeUpdate();
             if(rowInserted > 0){
@@ -540,28 +536,27 @@ public class FiturSupplier extends javax.swing.JPanel {
         int row = tbl_data.getSelectedRow();
         jLabel6.setText("Perbarui Data Produk SiLoang");
         
-        txt_id.setEnabled(false);  //Gabisa diklik
+        txt_idSupplier.setEnabled(false);  
         
-        txt_id.setText(tbl_data.getValueAt(row, 0).toString());            // kolom 0 = ID Produk
-        txt_nama.setText(tbl_data.getValueAt(row, 1).toString());          // kolom 1 = Nama Produk 
-        txt_stok.setText(tbl_data.getValueAt(row, 3).toString());          // kolom 3 = Stok
+        txt_idSupplier.setText(tbl_data.getValueAt(row, 0).toString());            
+        txt_namaSupplier.setText(tbl_data.getValueAt(row, 1).toString());   
+        txt_alamatSupplier.setText(tbl_data.getValueAt(row, 2).toString());  
+        txt_teleponSupplier.setText(tbl_data.getValueAt(row, 3).toString());         
     }
     
     private void updateData() {
-        String idProduk = txt_id.getText();
-        String namaProduk = txt_nama.getText();
-        String stokText = txt_stok.getText();  
-        
-        
-        //Convert String ke Integer
-        int stok = Integer.parseInt(stokText);
+        String idSupplier = txt_idSupplier.getText();
+        String namaSupplier = txt_namaSupplier.getText();
+        String alamatSupplier = txt_alamatSupplier.getText();  
+        String teleponSupplier = txt_teleponSupplier.getText(); 
         
         try {
-            String sql = "UPDATE produk SET nama_produk=?, satuan=?, stok=?, harga_beli=?, harga_jual=? WHERE id_produk=?";
+            String sql = "UPDATE produk SET nama_pelanggan=?, alamat=?, telepon=? WHERE id_supplier=?";
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, namaProduk);
-            st.setInt(3, stok);
-            st.setString(6, idProduk);
+            st.setString(1, namaSupplier);
+            st.setString(2, alamatSupplier);
+            st.setString(3, teleponSupplier);
+            st.setString(4, idSupplier);
             
             int rowUpdated = st.executeUpdate();
             if(rowUpdated > 0){
@@ -585,7 +580,7 @@ public class FiturSupplier extends javax.swing.JPanel {
         if(confirm == JOptionPane.YES_OPTION){
             String id = tbl_data.getValueAt(selectedRow, 0).toString();
             try {
-                String sql = "DELETE FROM produk WHERE id_produk=?";
+                String sql = "DELETE FROM supplier WHERE id_supplier=?";
                 try(PreparedStatement st = conn.prepareStatement(sql)){
                     st.setString(1, id);
                     
@@ -612,21 +607,19 @@ public class FiturSupplier extends javax.swing.JPanel {
         model.setRowCount(0);
         
         try {
-            String sql = "SELECT * FROM produk WHERE id_produk LIKE ? OR nama_produk LIKE ?";
+            String sql = "SELECT * FROM supplier WHERE id_supplier LIKE ? OR nama_supplier LIKE ?";
             try (PreparedStatement st = conn.prepareStatement(sql)){
                 st.setString(1, "%" + kataKunci + "%");
                 st.setString(2, "%" + kataKunci + "%");
                 ResultSet rs = st.executeQuery();
                 
                 while (rs.next()) {
-                    String idProduk     = rs.getString("id_produk");
-                    String namaProduk   = rs.getString("nama_produk");
-                    String satuan       = rs.getString("satuan");
-                    int stok            = rs.getInt("stok");
-                    int hargaBeli       = rs.getInt("harga_beli");
-                    int hargaJual       = rs.getInt("harga_jual");
-                    
-                    Object[] rowData = {idProduk, namaProduk, satuan, stok, hargaBeli, hargaJual};
+                    String idSupplier          = rs.getString("id_supplier");
+                    String namaSupplier        = rs.getString("nama_supplier");
+                    String alamatSupplier      = rs.getString("alamat");
+                    String teleponSupplier     = rs.getString("telepon");
+                   
+                    Object[] rowData = {idSupplier, namaSupplier, alamatSupplier, teleponSupplier};
                     model.addRow(rowData);
                 }
             }

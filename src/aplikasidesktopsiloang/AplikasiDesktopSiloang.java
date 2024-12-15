@@ -1,7 +1,10 @@
 package aplikasidesktopsiloang;
+
+import view.FiturLogin;
+
 public class AplikasiDesktopSiloang {
     public static void main(String[] args) {
-        Login LoginFrame = new Login();
+        FiturLogin LoginFrame = new FiturLogin();
         LoginFrame.setVisible(true);
         LoginFrame.pack();
         LoginFrame.setLocationRelativeTo(null);

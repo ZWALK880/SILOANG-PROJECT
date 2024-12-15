@@ -132,7 +132,7 @@ public class FiturPenjualan extends javax.swing.JPanel {
         panelMain.setLayout(new java.awt.CardLayout());
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setText("Data Master > Penjualan");
+        jLabel1.setText("Transaksi > Penjualan");
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_penjualan15px.png"))); // NOI18N
@@ -319,7 +319,7 @@ public class FiturPenjualan extends javax.swing.JPanel {
         panelMain.add(panelView, "card2");
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setText("Data Master > Penjualan");
+        jLabel2.setText("Transaksi > Penjualan");
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/icon_penjualan15px.png"))); // NOI18N
@@ -641,13 +641,13 @@ public class FiturPenjualan extends javax.swing.JPanel {
                                 .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(panelAddLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(panelAddLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(panelAddLayout.createSequentialGroup()
                                 .addComponent(lb_totalHarga)
                                 .addGap(217, 217, 217)
                                 .addComponent(lb_total))
                             .addGroup(panelAddLayout.createSequentialGroup()
-                                .addComponent(txt_totalHarga, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txt_totalHarga)
                                 .addGap(10, 10, 10)
                                 .addComponent(lb_totalBeli, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(10, 10, 10))
@@ -787,6 +787,8 @@ public class FiturPenjualan extends javax.swing.JPanel {
             {
                 insertData();
                 insertDataDetail();
+                updateStokProduk(); 
+                updateStokTisuDanTutup(); 
                 deleteDataSementara();
                 resetForm();
                 loadData();
@@ -988,8 +990,8 @@ public class FiturPenjualan extends javax.swing.JPanel {
         model.addColumn("Total Beli");
         model.addColumn("Total Harga");
         model.addColumn("Tanggal Transaksi");
-        model.addColumn("Pelanggan");
-        model.addColumn("Kasir");
+        model.addColumn("Nama Pelanggan");
+        model.addColumn("Nama Karyawan");
     }
 
     private void getData(DefaultTableModel model) {
@@ -1145,7 +1147,7 @@ public class FiturPenjualan extends javax.swing.JPanel {
     
     private void setProduk() {
         boolean closable = true;
-        DataProduk produk = new DataProduk(null, closable);
+        DataProdukPN produk = new DataProdukPN(null, closable);
         produk.setVisible(true);
         
         txt_idProduk.setText(produk.getIdProduk());
@@ -1183,11 +1185,16 @@ public class FiturPenjualan extends javax.swing.JPanel {
             st.setString(5, jumlahBeli);
             st.setString(6, subtotal);
             st.setString(7, statusBayar);
-            
             st.executeUpdate();
+            
             getUpdateTotalHargaDanBeli();
             loadDataSementara();
-            
+
+            // Memanggil fungsi untuk mengecek stok produk
+            if (!cekStok()) {
+                return; // Jika stok tidak mencukupi, batalkan transaksi
+            }
+
             if(JOptionPane.showConfirmDialog(this, "Mau Tambah Produk?",
                     "Konfirmasi",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION){
                 resetFormProduk();
@@ -1309,16 +1316,7 @@ public class FiturPenjualan extends javax.swing.JPanel {
         String totalHarga = txt_totalHarga.getText();
         String idPelanggan = txt_idPelanggan.getText();
         Date tanggal = txt_tanggal.getDate();
-        String tanggalTransaksi = "";
-        
-        if (tanggal != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            tanggalTransaksi = sdf.format(tanggal);
-        } else {
-            tanggal = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            tanggalTransaksi = sdf.format(tanggal);
-        }
+        String tanggalTransaksi = new SimpleDateFormat("yyyy-MM-dd").format(tanggal);
         
         if(idPenjualan.isEmpty() || totalBeli.isEmpty() || totalHarga.isEmpty() || tanggalTransaksi.isEmpty() || idPelanggan.isEmpty()){
             JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
@@ -1519,4 +1517,54 @@ public class FiturPenjualan extends javax.swing.JPanel {
             Logger.getLogger(FiturPenjualan.class.getName()).log(Level.SEVERE,null,e);
         }
     }
+    
+    private boolean cekStok() {
+        try {
+            String sql = "SELECT produk.id_produk, produk.nama_produk, produk.stok, pn_sementara.jumlah_beli " +
+                         "FROM produk " +
+                         "INNER JOIN pn_sementara ON produk.id_produk = pn_sementara.id_produk " +
+                         "WHERE produk.stok < pn_sementara.jumlah_beli";
+
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+
+            if (rs.next()) { // Jika ada stok yang tidak mencukupi
+                JOptionPane.showMessageDialog(this, 
+                    "Stok " + rs.getString("nama_produk") + " tidak mencukupi !\n" +
+                    "Stok tersedia : " + rs.getInt("stok") + "\nJumlah beli : " + rs.getInt("jumlah_beli"),
+                    "Peringatan", JOptionPane.ERROR_MESSAGE);
+                return false; // Stok kurang
+            }
+        } catch (SQLException e) {
+            Logger.getLogger(FiturPenjualan.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return true; // Stok mencukupi
+    }
+
+    private void updateStokProduk() {
+        try {
+            String sql = "UPDATE produk " +
+                         "INNER JOIN pn_sementara ON produk.id_produk = pn_sementara.id_produk " +
+                         "SET produk.stok = produk.stok - pn_sementara.jumlah_beli";
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(FiturPenjualan.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
+    private void updateStokTisuDanTutup() {
+        try {
+            String sql = "UPDATE produk SET stok = stok - ( " +
+                         "    SELECT COUNT(*) FROM pn_sementara " +
+                         "    WHERE id_produk BETWEEN 'SL001' AND 'SL007' " +
+                         ") WHERE id_produk IN ('SL008', 'SL009')";
+
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.executeUpdate();
+        } catch (SQLException e) {
+            Logger.getLogger(FiturPenjualan.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+
 }

@@ -232,8 +232,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txt_id" alignment="0" pref="890" max="32767" attributes="0"/>
-                          <Component id="txt_nama" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_idSupplier" alignment="0" pref="890" max="32767" attributes="0"/>
+                          <Component id="txt_namaSupplier" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
@@ -249,8 +249,8 @@
                           <Component id="lb_id" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lb_nama" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="lb_stok" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="txt_stok" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txt_nama1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_teleponSupplier" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txt_alamatSupplier" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                   </Group>
@@ -277,19 +277,19 @@
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lb_id" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="txt_id" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txt_idSupplier" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lb_nama" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="txt_nama" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txt_namaSupplier" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Component id="lb_satuan" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
-                      <Component id="txt_nama1" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txt_alamatSupplier" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="lb_stok" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Component id="txt_stok" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="txt_teleponSupplier" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace pref="228" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -301,7 +301,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Data Master &gt; Pelanggan"/>
+                <Property name="text" type="java.lang.String" value="Data Master &gt; Supplier"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel5">
@@ -319,7 +319,7 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="14" style="1"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Tambah Data Pelanggan SiLoang"/>
+                <Property name="text" type="java.lang.String" value="Tambah Data Supplier SiLoang"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JButton" name="btn_save">
@@ -370,7 +370,7 @@
                 <Property name="text" type="java.lang.String" value="Nama"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_id">
+            <Component class="javax.swing.JTextField" name="txt_idSupplier">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="2"/>
@@ -404,7 +404,7 @@
                 <Property name="text" type="java.lang.String" value="Telepon"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_nama">
+            <Component class="javax.swing.JTextField" name="txt_namaSupplier">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="2"/>
@@ -414,7 +414,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_stok">
+            <Component class="javax.swing.JTextField" name="txt_teleponSupplier">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="2"/>
@@ -424,7 +424,7 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="txt_nama1">
+            <Component class="javax.swing.JTextField" name="txt_alamatSupplier">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="SansSerif" size="12" style="2"/>

@@ -993,7 +993,7 @@ public class FiturPembelian extends javax.swing.JPanel {
         model.addColumn("Total Harga");
         model.addColumn("Tanggal Transaksi");
         model.addColumn("Nama Supplier");
-        model.addColumn("Nama Karyawan");
+        model.addColumn("Nama Administrator");
     }
 
     private void getData(DefaultTableModel model) {
@@ -1313,16 +1313,7 @@ public class FiturPembelian extends javax.swing.JPanel {
         String totalHarga = txt_totalHarga.getText();
         String idSupplier = txt_idSupplier.getText();
         Date tanggal = txt_tanggal.getDate();
-        String tanggalTransaksi = "";
-        
-        if (tanggal != null) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            tanggalTransaksi = sdf.format(tanggal);
-        } else {
-            tanggal = new Date();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            tanggalTransaksi = sdf.format(tanggal);
-        }
+        String tanggalTransaksi = new SimpleDateFormat("yyyy-MM-dd").format(tanggal);
         
         if(idPembelian.isEmpty() || totalBeli.isEmpty() || totalHarga.isEmpty() || tanggalTransaksi.isEmpty() || idSupplier.isEmpty()){
             JOptionPane.showMessageDialog(this, "Semua kolom harus diisi !", "Validasi", JOptionPane.ERROR_MESSAGE);
@@ -1365,6 +1356,7 @@ public class FiturPembelian extends javax.swing.JPanel {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, idPembelian); // Set id_penjualan untuk semua produk
             st.executeUpdate();
+            updateStokProduk();
         } catch (SQLException e) {
             Logger.getLogger(FiturPembelian.class.getName()).log(Level.SEVERE,null,e);
         }
@@ -1523,4 +1515,24 @@ public class FiturPembelian extends javax.swing.JPanel {
             Logger.getLogger(FiturPembelian.class.getName()).log(Level.SEVERE,null,e);
         }
     }
+    
+    private void updateStokProduk() {
+        try {
+            String sql = "UPDATE produk " +
+                         "JOIN detail_pembelian ON produk.id_produk = detail_pembelian.id_produk " +
+                         "SET produk.stok = produk.stok + detail_pembelian.jumlah " +
+                         "WHERE detail_pembelian.id_pembelian = ?"; 
+
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, txt_idPembelian.getText()); // Ambil ID Pembelian dari form
+
+            int rowsUpdated = st.executeUpdate();
+            
+        } catch (SQLException e) {
+            Logger.getLogger(FiturPembelian.class.getName()).log(Level.SEVERE, null, e);
+            JOptionPane.showMessageDialog(this, "Gagal memperbarui stok produk.");
+        }
+    }
+
+    
 }
